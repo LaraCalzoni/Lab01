@@ -1,18 +1,17 @@
 package it.polito.tdp.parole.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Parole {
+public class Parole_arrayList {
 
 List <String> listaParole;
 
 	
-	public Parole() {
+	public Parole_arrayList() {
 		
-		listaParole= new ArrayList <String>();
+		listaParole= new LinkedList <String>();
 		
 	}
 	

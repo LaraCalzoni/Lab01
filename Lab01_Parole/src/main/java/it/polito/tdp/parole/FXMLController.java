@@ -30,6 +30,9 @@ public class FXMLController {
 
     @FXML
     private TextArea txtResult;
+    
+    @FXML
+    private TextArea txtTempi;
 
     @FXML
     private Button btnReset;
@@ -42,7 +45,7 @@ public class FXMLController {
     String daCancellare = txtResult.getSelectedText();
     elenco.getElenco().remove(daCancellare);
     txtResult.setText(elenco.toString());
-    
+	txtTempi.appendText("CANCELLA ha impiegato "+Integer.toString((int)System.nanoTime())+" nanosecondi"+'\n');
     }
 
     @FXML
@@ -64,8 +67,8 @@ public class FXMLController {
 	    	}
 		
         txtResult.setText(elenco.toString());
-    
-    	
+        
+    	txtTempi.appendText("INSERISCI ha impiegato "+Integer.toString((int)System.nanoTime())+" nanosecondi"+'\n');
     	
     }
 
@@ -73,6 +76,7 @@ public class FXMLController {
     void doReset(ActionEvent event) {
     	elenco.reset();
     	txtResult.setText("");
+    	txtTempi.appendText("RESET ha impiegato "+Integer.toString((int)System.nanoTime())+" nanosecondi"+'\n');
     }
 
     @FXML
