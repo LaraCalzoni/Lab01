@@ -42,15 +42,17 @@ public class FXMLController {
 
     @FXML
     void doCancella(ActionEvent event) {
+    long start= System.nanoTime();
     String daCancellare = txtResult.getSelectedText();
     elenco.getElenco().remove(daCancellare);
     txtResult.setText(elenco.toString());
-	txtTempi.appendText("CANCELLA ha impiegato "+Integer.toString((int)System.nanoTime())+" nanosecondi"+'\n');
+    long end= System.nanoTime();
+	txtTempi.appendText("CANCELLA ha impiegato "+Integer.toString((int)(end-start))+" nanosecondi"+'\n');
     }
 
     @FXML
     void doInsert(ActionEvent event) {
-    	
+    	double start= System.nanoTime();
         String pTemp= txtParola.getText();
 /*
 		if(elenco.getElenco().contains(pTemp)) {    //verifico se la lista contiene già la parola
@@ -67,16 +69,18 @@ public class FXMLController {
 	    	}
 		
         txtResult.setText(elenco.toString());
-        
-    	txtTempi.appendText("INSERISCI ha impiegato "+Integer.toString((int)System.nanoTime())+" nanosecondi"+'\n');
+        double end= System.nanoTime();
+    	txtTempi.appendText("INSERISCI ha impiegato "+Integer.toString((int)(end-start))+" nanosecondi"+'\n');
     	
     }
 
     @FXML
     void doReset(ActionEvent event) {
+    	long start= System.nanoTime();
     	elenco.reset();
+    	long end= System.nanoTime();
     	txtResult.setText("");
-    	txtTempi.appendText("RESET ha impiegato "+Integer.toString((int)System.nanoTime())+" nanosecondi"+'\n');
+    	txtTempi.appendText("RESET ha impiegato "+Integer.toString((int)(end-start))+" nanosecondi"+'\n');
     }
 
     @FXML
