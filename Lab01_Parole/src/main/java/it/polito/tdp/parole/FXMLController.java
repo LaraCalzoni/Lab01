@@ -33,6 +33,17 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
+    
+    @FXML
+    private Button btnCancella;
+
+    @FXML
+    void doCancella(ActionEvent event) {
+    String daCancellare = txtResult.getSelectedText();
+    elenco.getElenco().remove(daCancellare);
+    txtResult.setText(elenco.toString());
+    
+    }
 
     @FXML
     void doInsert(ActionEvent event) {
