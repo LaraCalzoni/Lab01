@@ -3,6 +3,8 @@ package it.polito.tdp.parole;
 import it.polito.tdp.parole.model.Parole;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +15,7 @@ import javafx.scene.control.TextField;
 public class FXMLController {
 	
 	Parole elenco ;
-
+	
     @FXML
     private ResourceBundle resources;
 
@@ -34,12 +36,32 @@ public class FXMLController {
 
     @FXML
     void doInsert(ActionEvent event) {
-    	// TODO
+    	
+        String pTemp= txtParola.getText();
+/*
+		if(elenco.getElenco().contains(pTemp)) {    //verifico se la lista contiene già la parola
+	    	txtResult.setText(pTemp+": Parola già inserita"+'\n');
+	    	}
+		else { // se la lista non la contiene...
+			elenco.addParola(pTemp);
+    		txtResult.setText("Parola inserita con successo"+'\n');
+    		
+		}
+		*/
+        if(!elenco.getElenco().contains(pTemp)) {  
+        	elenco.addParola(pTemp);
+	    	}
+		
+        txtResult.setText(elenco.toString());
+    
+    	
+    	
     }
 
     @FXML
     void doReset(ActionEvent event) {
-    	// TODO
+    	elenco.reset();
+    	txtResult.setText("");
     }
 
     @FXML
