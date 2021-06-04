@@ -42,6 +42,7 @@ public class FXMLController {
 
     @FXML
     void doCancella(ActionEvent event) {
+    	txtResult.clear();
     long start= System.nanoTime();
     String daCancellare = txtResult.getSelectedText();
     elenco.getElenco().remove(daCancellare);
